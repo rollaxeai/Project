@@ -1,0 +1,25 @@
+.venv/
+data/
+logs/
+mlruns/
+mlflow.db
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+# веса и предсказания (сотни МБ) — не в git; в репозитории только ONNX-модель продукта и метрики запусков
+models/deep/*/*.pt
+models/deep/*/*.npz
+models/baseline/*.npz
+models/baseline/*.txt
+models/*.pt
+# рабочие файлы, не для публикации
+ЖУРНАЛ.md
+*.zip
+*_tmp_jupytext_*
+Выбор проекта.txt
+Критерии оценки.txt
+Помощь с проектом.txt
+Требования к оформлению.txt

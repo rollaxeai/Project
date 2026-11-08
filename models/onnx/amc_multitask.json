@@ -1,0 +1,1 @@
+{"run": "synth_v1_1024_multitask_s2", "targets": ["snr_db", "cfo", "log2_rate", "log2_bw", "rolloff", "log2_shift"], "window": 1024}

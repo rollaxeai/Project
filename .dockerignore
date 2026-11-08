@@ -1,0 +1,5 @@
+*
+!src/
+!app/
+!models/onnx/
+!requirements-app.txt

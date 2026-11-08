@@ -1,0 +1,10 @@
+# Зависимости продукта (без torch): инференс через ONNX Runtime
+numpy
+scipy
+pandas
+soundfile
+onnxruntime
+fastapi
+uvicorn
+python-multipart
+streamlit

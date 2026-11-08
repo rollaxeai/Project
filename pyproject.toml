@@ -1,0 +1,32 @@
+[project]
+name = "amc"
+version = "0.1.0"
+description = "Автоматическое распознавание вида модуляции радиосигналов методами машинного обучения"
+requires-python = ">=3.11"
+
+[project.scripts]
+amc-infer = "amc.infer:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "D"]
+# N803/N806/N812 — математические обозначения (X, T, F = torch.nn.functional) приняты в научном коде;
+# B008 — идиома FastAPI File(...) и неизменяемый dataclass по умолчанию; D107 — docstring у класса.
+ignore = ["D100", "D104", "D107", "D203", "D213", "N803", "N806", "N812", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D103"]
+"tools/*" = ["D103", "E501"]
+
+[tool.black]
+line-length = 130
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]

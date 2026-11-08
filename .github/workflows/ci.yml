@@ -1,0 +1,20 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Зависимости (torch — CPU-сборка)
+        run: |
+          sudo apt-get update && sudo apt-get install -y libsndfile1
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy scipy pandas pyarrow scikit-learn soundfile onnxruntime fastapi uvicorn python-multipart httpx streamlit pytest ruff
+          pip install -e . --no-deps
+      - name: Линтер
+        run: ruff check src app tests tools
+      - name: Тесты
+        run: pytest -q
